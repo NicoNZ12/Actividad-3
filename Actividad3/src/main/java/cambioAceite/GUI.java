@@ -333,7 +333,7 @@ public class GUI extends javax.swing.JFrame {
         Auto autoCambio = new Auto();
 
         if (txtAceite.getText().equals("") || txtAuto.getText().equals("") || txtPatente.getText().equals("")
-                || filtroAceiteCheckBox.isSelected() == false || filtroAireCheckBox.isSelected() == false || filtroCombCheckBox.isSelected() == false) {
+                || filtroAceiteCheckBox.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "Por favor, ingrese los datos que desea agregar");
         } else {
             String patente = txtPatente.getText().toUpperCase();
