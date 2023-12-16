@@ -5,6 +5,7 @@ import cambioAceite.Auto;
 import dao.Main;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class DAOAutoImplementacion implements DAOAuto {
     Main main = new Main();
@@ -66,7 +67,30 @@ public class DAOAutoImplementacion implements DAOAuto {
     }
 
     @Override
-    public void buscar(Auto auto) {
-        
+    public boolean buscar(Auto auto) {
+        try {
+            Connection conectar = main.establecerConexion();
+            PreparedStatement buscar = conectar.prepareStatement("SELECT * FROM cambioAceite WHERE patente = ?");
+
+            buscar.setString(1, auto.getPatente());
+
+            ResultSet consulta = buscar.executeQuery();
+
+            if (consulta.next()) {
+                auto.setPatente(consulta.getString("patente"));
+                auto.setAuto(consulta.getString("auto"));
+                auto.setAceite(consulta.getString("aceite"));
+                auto.setFiltroAceite(consulta.getBoolean("filtroAceite"));
+                auto.setFiltroAire(consulta.getBoolean("filtroAire"));
+                auto.setFiltroCombustible(consulta.getBoolean("filtroCombustible"));
+                return true;
+            } else {
+                return false; // Devuelve false si no se encuentra el registro
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
     }
 }

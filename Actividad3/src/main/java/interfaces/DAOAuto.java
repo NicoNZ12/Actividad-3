@@ -11,5 +11,5 @@ public interface DAOAuto {
     
     public void eliminar(Auto auto);
     
-    public void buscar(Auto auto);
+    public boolean buscar(Auto auto);
 }
