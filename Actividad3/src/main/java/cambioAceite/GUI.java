@@ -251,12 +251,10 @@ public class GUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -352,6 +350,8 @@ public class GUI extends javax.swing.JFrame {
 
             auto_dao.agregar(autoCambio);
             JOptionPane.showMessageDialog(null, "Datos ingresados correctamente!");
+            limpiar();
+            mostrar();
         }
     }
 
@@ -368,6 +368,7 @@ public class GUI extends javax.swing.JFrame {
 
             auto_dao.eliminar(auto);
             JOptionPane.showMessageDialog(null, "Registro eliminado correctamente!");
+            mostrar();
         }
     }
 
@@ -396,6 +397,7 @@ public class GUI extends javax.swing.JFrame {
 
             auto_dao.actualizar(auto);
             JOptionPane.showMessageDialog(null, "Registro modificado correctamente!");
+            mostrar();
         }
     }
     
@@ -450,13 +452,10 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         agregar();
-        mostrar();
-        limpiar();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         eliminar();
-        mostrar();
         limpiar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -484,7 +483,6 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         actualizar();
-        mostrar();
         limpiar();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
