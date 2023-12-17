@@ -394,13 +394,12 @@ public class GUI extends javax.swing.JFrame {
             auto.setFiltroAire(filtroAire);
             auto.setFiltroCombustible(filtroComb);
 
-
             auto_dao.actualizar(auto);
             JOptionPane.showMessageDialog(null, "Registro modificado correctamente!");
             mostrar();
         }
     }
-    
+
     public void buscar() {
         DAOAutoImplementacion auto_dao = new DAOAutoImplementacion();
         Auto auto = new Auto();
@@ -442,6 +441,7 @@ public class GUI extends javax.swing.JFrame {
                 filtroCombCheckBox.setSelected(auto.isFiltroCombustible());
 
                 JOptionPane.showMessageDialog(null, "Registro encontrado correctamente!");
+
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró el registro con la patente proporcionada");
             }
@@ -488,11 +488,10 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         buscar();
-        limpiar();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-       mostrar();
+        mostrar();
     }//GEN-LAST:event_btnMostrarActionPerformed
 
 
